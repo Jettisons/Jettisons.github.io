@@ -234,6 +234,121 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/03/Win10%E4%B8%8B%EF%BC%8CpyTorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%BF%83%E5%BE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.png">
+      <meta itemprop="name" content="Jettison">
+      <meta itemprop="description" content="Jettison">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jettisons' Blog">
+    </span>
+
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/03/Win10%E4%B8%8B%EF%BC%8CpyTorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%BF%83%E5%BE%97/" class="post-title-link" itemprop="url">Git Notebooks</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-08-03 11:39:27 / Modified: 11:39:55" itemprop="dateCreated datePublished" datetime="2020-08-03T11:39:27+08:00">2020-08-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Win10下，pyTorch深度学习环境搭建心得"><a href="#Win10下，pyTorch深度学习环境搭建心得" class="headerlink" title="Win10下，pyTorch深度学习环境搭建心得"></a>Win10下，pyTorch深度学习环境搭建心得</h1><p>搭建windows下python深度学习基础环境</p>
+<p>目前共需要三个基础的需要安装的工具</p>
+<p>1.Anaconda 2.pyTorch 3.Cuda+Cudnn</p>
+<p>接下来介绍从零开始配置环境</p>
+<h2 id="1-Anaconda的安装"><a href="#1-Anaconda的安装" class="headerlink" title="1. Anaconda的安装"></a>1. Anaconda的安装</h2><p>​        我的电脑上已经先安装过了python3.7，一开始我并不想安装anaconda，本意尽量从简，但是pip并没有想象中好用，并不能快速安装我需要的包，所以选择使用conda。对于conda，有两个选择，一个是Anaconda，一个是Miniconda。后者是前者的精简版，只有conda的包管理功能，没有主界面等，简单说就是让你可以在命令行用conda的指令，对我来说足够了，所以我选择安装miniconda。</p>
+<blockquote>
+<p><strong>下载地址</strong></p>
+</blockquote>
+<p>官方网站：<a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a></p>
+<p>清华镜像：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/">https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/</a></p>
+<hr>
+<p>​        下载好之后进行安装，可以一路默认直到<code>Advanced Options</code>，这里建议不要勾选<code>Add Anaconda to my PATH environment variable</code>，勾选<code>Register Anaconda as my default Python</code>，因为Anaconda的python是在虚拟环境中使用的，如果勾选第一项会导致你在cmd中输入python会有警告，然后继续安装即可</p>
+<p>安装好后在环境变量中添加三个路径，已经有的话就不用了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\Miniconda3； </span><br><span class="line">C:\Users\Administrator\Miniconda3\Scripts； </span><br><span class="line">C:\Users\Administrator\Miniconda3\Library\bin </span><br></pre></td></tr></table></figure>
+
+<p>至此，conda算是安装好了，接下来就可以利用conda来安装其他你需要的包了</p>
+<h2 id="2-pyTorch的安装"><a href="#2-pyTorch的安装" class="headerlink" title="2. pyTorch的安装"></a>2. pyTorch的安装</h2><p>​        首先到官方网站<a target="_blank" rel="noopener" href="https://pytorch.org/">https://pytorch.org/</a>，得到关于你的配置下的pyTorch安装指令，比如我的是<code>windows10+conda+python+Cuda10.1</code>，就得到了这样的指令<code>conda install pytorch torchvision cudatoolkit=10.1 -c pytorch</code>，注意讲后面的-c python去掉（我也不懂，去掉就是了），接着最保险的安装方法是打开Anaconda Prompt操作台，类似于cmd（已经安装了miniconda，所以会有这个程序）</p>
+<ul>
+<li>对于国内用户推荐，首先给Anaconda添加清华镜像</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;free&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;main&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;pytorch&#x2F;</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>接下来执行之前得到的指令来安装pyTorch即可</li>
+</ul>
+<hr>
+<p>​        安装完成后可以关闭，打开cmd，创建一个带有pytorch包的虚拟环境，指令如下<code>conda create -n your_envname python=3.7 pytorch</code>，创建完成后，使用<code>conda activate your_envname</code>来打开该虚拟环境，然后输入python，打开python，接着输入<code>import torch</code>来查看pyTorch是否安装成功并可以使用，至此，pytorch的安装告一段落。其他包的安装可以借鉴此过程</p>
+<ul>
+<li>其实也可以先创建环境，再在该环境下安装pyTorch包，效果是一样的</li>
+</ul>
+<h2 id="Cuda-Cudnn的安装"><a href="#Cuda-Cudnn的安装" class="headerlink" title="Cuda+Cudnn的安装"></a>Cuda+Cudnn的安装</h2><p>​        先下载Cuda，到官网下载<a target="_blank" rel="noopener" href="https://developer.nvidia.com/">https://developer.nvidia.com/</a>，根据配置选择相应版本下载。安装直接一路默认即可</p>
+<hr>
+<p>​        再下载Cudnn，<a target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-download">https://developer.nvidia.com/rdp/cudnn-download</a>，需要注册一个Nivida账号，选择相应版本下载 </p>
+<ol>
+<li><p>下载完成后得到一个压缩包，将其解压，找到文件夹’cuda’打开，你会发现三个文件夹’bin’、’include’、’lib’</p>
+</li>
+<li><p>打开CUDA安装路径</p>
+<p><code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA </code></p>
+<p>发现有同名的三个文件夹’bin’、’include’、’lib’</p>
+</li>
+<li><p>将第一步中’bin’中的文件复制到第二步中’bin’文件夹下</p>
+<p>将第一步中’include’中的文件复制到第二步中’include’文件夹下</p>
+<p>将第一步中’lib’文件夹下’x64’文件夹中的文件复制到第二步中’lib’文件夹下’x64’文件夹中</p>
+</li>
+<li><p>接着添加path环境变量：<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\lib\x64</code></p>
+</li>
+</ol>
+<p>至此，安装完成，在cmd中输入nvcc -V查看是否安装完成</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/02/GIT/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -341,63 +456,6 @@
 <p><code>git tag -d &lt;tag name&gt;</code>：删除标签</p>
 <p><code>git push origin :refs/tags/&lt;tag name&gt;</code>：从远程删除标签</p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/02/my-test-site/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/1.png">
-      <meta itemprop="name" content="Jettison">
-      <meta itemprop="description" content="Jettison">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jettisons' Blog">
-    </span>
-
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/02/my-test-site/" class="post-title-link" itemprop="url">my_test_site</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-08-02 11:02:39" itemprop="dateCreated datePublished" datetime="2020-08-02T11:02:39+08:00">2020-08-02</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
       
     </div>
 
