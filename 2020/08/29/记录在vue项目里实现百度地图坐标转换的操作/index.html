@@ -24,30 +24,32 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false};
   </script>
 
-  <meta name="description" content="Jettison">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jettisons&#39; Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="在vue项目里实现百度地图坐标转换 背景  ​        背景是这样的，因项目需要，在网页中要放置一张百度地图，用来显示各种不同局站的地理分布，大概有几百个坐标需要同时显示。而甲方给的数据表中的坐标是大地坐标系（WGS84），而百度地图使用的则是自己的百度坐标系（bd09），因此直接显示会有偏移而不准确，所以要进行纠偏后才能正常显示。  百度提供的接口  百度坐标转换接口的服务文档：https">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在vue项目里实现百度地图坐标转换">
+<meta property="og:url" content="http://yoursite.com/2020/08/29/%E8%AE%B0%E5%BD%95%E5%9C%A8vue%E9%A1%B9%E7%9B%AE%E9%87%8C%E5%AE%9E%E7%8E%B0%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E7%9A%84%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="Jettisons&#39; Blog">
-<meta property="og:description" content="Jettison">
+<meta property="og:description" content="在vue项目里实现百度地图坐标转换 背景  ​        背景是这样的，因项目需要，在网页中要放置一张百度地图，用来显示各种不同局站的地理分布，大概有几百个坐标需要同时显示。而甲方给的数据表中的坐标是大地坐标系（WGS84），而百度地图使用的则是自己的百度坐标系（bd09），因此直接显示会有偏移而不准确，所以要进行纠偏后才能正常显示。  百度提供的接口  百度坐标转换接口的服务文档：https">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-29T02:56:18.507Z">
+<meta property="article:modified_time" content="2020-08-29T02:54:21.713Z">
 <meta property="article:author" content="Jettison">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/08/29/%E8%AE%B0%E5%BD%95%E5%9C%A8vue%E9%A1%B9%E7%9B%AE%E9%87%8C%E5%AE%9E%E7%8E%B0%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E7%9A%84%E6%93%8D%E4%BD%9C/">
 
 
 <script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Jettisons' Blog</title>
+  <title>在vue项目里实现百度地图坐标转换 | Jettisons' Blog</title>
   
 
 
@@ -159,7 +161,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -171,6 +173,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8vue%E9%A1%B9%E7%9B%AE%E9%87%8C%E5%AE%9E%E7%8E%B0%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">在vue项目里实现百度地图坐标转换</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -228,9 +231,10 @@
       <div class="main-inner">
         
 
-        <div class="content index posts-expand">
+        <div class="content post posts-expand">
           
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -248,10 +252,9 @@
 
     
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/29/%E8%AE%B0%E5%BD%95%E5%9C%A8vue%E9%A1%B9%E7%9B%AE%E9%87%8C%E5%AE%9E%E7%8E%B0%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2%E7%9A%84%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">在vue项目里实现百度地图坐标转换</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          在vue项目里实现百度地图坐标转换
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -274,6 +277,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -282,7 +292,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="在vue项目里实现百度地图坐标转换"><a href="#在vue项目里实现百度地图坐标转换" class="headerlink" title="在vue项目里实现百度地图坐标转换"></a>在vue项目里实现百度地图坐标转换</h1><blockquote>
+        <h1 id="在vue项目里实现百度地图坐标转换"><a href="#在vue项目里实现百度地图坐标转换" class="headerlink" title="在vue项目里实现百度地图坐标转换"></a>在vue项目里实现百度地图坐标转换</h1><blockquote>
 <p>背景</p>
 </blockquote>
 <p>​        背景是这样的，因项目需要，在网页中要放置一张百度地图，用来显示各种不同局站的地理分布，大概有几百个坐标需要同时显示。而甲方给的数据表中的坐标是大地坐标系（WGS84），而百度地图使用的则是自己的百度坐标系（bd09），因此直接显示会有偏移而不准确，所以要进行纠偏后才能正常显示。</p>
@@ -369,357 +379,30 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">send(s)&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">        s = s.substring(<span class="number">0</span>,s.length<span class="number">-1</span>);</span><br><span class="line">        s = <span class="string">&quot;http://api.map.baidu.com/geoconv/v1/?coords=&quot;</span> + s + <span class="string">&quot;&amp;from=3&amp;to=5&amp;ak=DZSjokGwq1OaHmR4iEhN4O0TXb0ImGBS&quot;</span>;</span><br><span class="line">        <span class="built_in">this</span>.$jsonp(</span><br><span class="line">          s</span><br><span class="line">        ).then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (!res.status) &#123;</span><br><span class="line">            resolve(res)</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span>&#123;</span><br><span class="line">          reject(err)</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/03/Win10%E4%B8%8B%EF%BC%8CpyTorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%BF%83%E5%BE%97/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/1.png">
-      <meta itemprop="name" content="Jettison">
-      <meta itemprop="description" content="Jettison">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jettisons' Blog">
-    </span>
-
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/03/Win10%E4%B8%8B%EF%BC%8CpyTorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%BF%83%E5%BE%97/" class="post-title-link" itemprop="url">Win10下，pyTorch深度学习环境搭建心得</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-03 11:39:27 / Modified: 11:42:47" itemprop="dateCreated datePublished" datetime="2020-08-03T11:39:27+08:00">2020-08-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Win10下，pyTorch深度学习环境搭建心得"><a href="#Win10下，pyTorch深度学习环境搭建心得" class="headerlink" title="Win10下，pyTorch深度学习环境搭建心得"></a>Win10下，pyTorch深度学习环境搭建心得</h1><p>搭建windows下python深度学习基础环境</p>
-<p>目前共需要三个基础的需要安装的工具</p>
-<p>1.Anaconda 2.pyTorch 3.Cuda+Cudnn</p>
-<p>接下来介绍从零开始配置环境</p>
-<h2 id="1-Anaconda的安装"><a href="#1-Anaconda的安装" class="headerlink" title="1. Anaconda的安装"></a>1. Anaconda的安装</h2><p>​        我的电脑上已经先安装过了python3.7，一开始我并不想安装anaconda，本意尽量从简，但是pip并没有想象中好用，并不能快速安装我需要的包，所以选择使用conda。对于conda，有两个选择，一个是Anaconda，一个是Miniconda。后者是前者的精简版，只有conda的包管理功能，没有主界面等，简单说就是让你可以在命令行用conda的指令，对我来说足够了，所以我选择安装miniconda。</p>
-<blockquote>
-<p><strong>下载地址</strong></p>
-</blockquote>
-<p>官方网站：<a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a></p>
-<p>清华镜像：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/">https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/</a></p>
-<hr>
-<p>​        下载好之后进行安装，可以一路默认直到<code>Advanced Options</code>，这里建议不要勾选<code>Add Anaconda to my PATH environment variable</code>，勾选<code>Register Anaconda as my default Python</code>，因为Anaconda的python是在虚拟环境中使用的，如果勾选第一项会导致你在cmd中输入python会有警告，然后继续安装即可</p>
-<p>安装好后在环境变量中添加三个路径，已经有的话就不用了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\Miniconda3； </span><br><span class="line">C:\Users\Administrator\Miniconda3\Scripts； </span><br><span class="line">C:\Users\Administrator\Miniconda3\Library\bin </span><br></pre></td></tr></table></figure>
-
-<p>至此，conda算是安装好了，接下来就可以利用conda来安装其他你需要的包了</p>
-<h2 id="2-pyTorch的安装"><a href="#2-pyTorch的安装" class="headerlink" title="2. pyTorch的安装"></a>2. pyTorch的安装</h2><p>​        首先到官方网站<a target="_blank" rel="noopener" href="https://pytorch.org/">https://pytorch.org/</a>，得到关于你的配置下的pyTorch安装指令，比如我的是<code>windows10+conda+python+Cuda10.1</code>，就得到了这样的指令<code>conda install pytorch torchvision cudatoolkit=10.1 -c pytorch</code>，注意讲后面的-c python去掉（我也不懂，去掉就是了），接着最保险的安装方法是打开Anaconda Prompt操作台，类似于cmd（已经安装了miniconda，所以会有这个程序）</p>
-<ul>
-<li>对于国内用户推荐，首先给Anaconda添加清华镜像</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;free&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;main&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;pytorch&#x2F;</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>接下来执行之前得到的指令来安装pyTorch即可</li>
-</ul>
-<hr>
-<p>​        安装完成后可以关闭，打开cmd，创建一个带有pytorch包的虚拟环境，指令如下<code>conda create -n your_envname python=3.7 pytorch</code>，创建完成后，使用<code>conda activate your_envname</code>来打开该虚拟环境，然后输入python，打开python，接着输入<code>import torch</code>来查看pyTorch是否安装成功并可以使用，至此，pytorch的安装告一段落。其他包的安装可以借鉴此过程</p>
-<ul>
-<li>其实也可以先创建环境，再在该环境下安装pyTorch包，效果是一样的</li>
-</ul>
-<h2 id="Cuda-Cudnn的安装"><a href="#Cuda-Cudnn的安装" class="headerlink" title="Cuda+Cudnn的安装"></a>Cuda+Cudnn的安装</h2><p>​        先下载Cuda，到官网下载<a target="_blank" rel="noopener" href="https://developer.nvidia.com/">https://developer.nvidia.com/</a>，根据配置选择相应版本下载。安装直接一路默认即可</p>
-<hr>
-<p>​        再下载Cudnn，<a target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-download">https://developer.nvidia.com/rdp/cudnn-download</a>，需要注册一个Nivida账号，选择相应版本下载 </p>
-<ol>
-<li><p>下载完成后得到一个压缩包，将其解压，找到文件夹’cuda’打开，你会发现三个文件夹’bin’、’include’、’lib’</p>
-</li>
-<li><p>打开CUDA安装路径</p>
-<p><code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA </code></p>
-<p>发现有同名的三个文件夹’bin’、’include’、’lib’</p>
-</li>
-<li><p>将第一步中’bin’中的文件复制到第二步中’bin’文件夹下</p>
-<p>将第一步中’include’中的文件复制到第二步中’include’文件夹下</p>
-<p>将第一步中’lib’文件夹下’x64’文件夹中的文件复制到第二步中’lib’文件夹下’x64’文件夹中</p>
-</li>
-<li><p>接着添加path环境变量：<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\lib\x64</code></p>
-</li>
-</ol>
-<p>至此，安装完成，在cmd中输入nvcc -V查看是否安装完成</p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/03/Win10%E4%B8%8B%EF%BC%8CpyTorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%BF%83%E5%BE%97/" rel="prev" title="Win10下，pyTorch深度学习环境搭建心得">
+      <i class="fa fa-chevron-left"></i> Win10下，pyTorch深度学习环境搭建心得
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/02/GIT/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/1.png">
-      <meta itemprop="name" content="Jettison">
-      <meta itemprop="description" content="Jettison">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jettisons' Blog">
-    </span>
-
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/02/GIT/" class="post-title-link" itemprop="url">Git Notebooks</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-08-02 16:12:03" itemprop="dateCreated datePublished" datetime="2020-08-02T16:12:03+08:00">2020-08-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-26 10:34:30" itemprop="dateModified" datetime="2020-08-26T10:34:30+08:00">2020-08-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h1><h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><p>创建并提交一个README.md文件</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir learn<span class="emphasis">_git</span></span><br><span class="line"><span class="emphasis">cd learn_</span>git</span><br><span class="line">git init</span><br><span class="line">touch README.md</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git remote add origin git@gitee.com:jettison/learn<span class="emphasis">_git.git</span></span><br><span class="line"><span class="emphasis">git push -u origin master //第一次推送加上 -u，之后不用</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h2><p><code>git status</code>：可查看是否有没有提交的修改</p>
-<p><code>git diff + 文件名</code>：查看文件做了什么修改</p>
-<p><code>git diff + 版本号..版本号</code>：查看两个版本有什么区别</p>
-<p><code>git diff HEAD -- 文件名</code>：查看工作区和版本库里面最新版本的区别</p>
-<p><code>git log</code>：命令显示从最近到最远的提交日志</p>
-<p><code>git log --pretty=oneline</code>：简洁版e</p>
-<p><code>cat + 文件名</code>：查看文件内容</p>
-<p><code>git reflog</code>：记录操作的每一次命令</p>
-<p><code>git remote (-v)</code>：（详细）查看远程库的信息，若无权限则看不到push地址</p>
-<h2 id="版本替换"><a href="#版本替换" class="headerlink" title="版本替换"></a>版本替换</h2><p><code>git reset --hard HEAD^</code>：回退到上一个版本</p>
-<p><code>git reset --hard + 版本号</code>：还原这个版本</p>
-<p><code>git checkout -- 文件名</code>：把文件在工作区的修改全部撤销，用版本库里版本替换工作区版本</p>
-<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p><code>git checkout -b 分支名称</code>：创建并切换到某一分支，该命令相当于</p>
-<p><code>git branch dev</code>+<code>git checkout dev</code></p>
-<p><code>git branch</code>：查看当前分支</p>
-<p><code>git branch -r</code>：查看远程分支</p>
-<p><code>git branch -a</code>：查看所有分支</p>
-<p>``git branch -d dev`：删除dev分支</p>
-<p>鼓励使用switch切换分支</p>
-<p><code>git branch -D dev</code>：强行删除没有merge的dev分支</p>
-<p><code>git switch -c dev</code>：创建并切换到dev分支</p>
-<p><code>git switch 分支</code>：切换某分支</p>
-<p><code>git merge dev</code>：用于合并指定分支到当前分支</p>
-<p><code>git merge --no-ff -m &quot;merge with no-ff&quot; dev</code>：不适用快速模式合并分支</p>
-<p><code>git branch --set-upstream-to=origin/dev dev</code>：将本地分支与远程分支建立链接</p>
-<p><code>git rebase</code>：可以把本地未push的分叉提交历史整理成直线；</p>
-<p><code>git log --name-status</code> 每次修改的文件列表, 显示状态<br><code>git log --name-only</code> 每次修改的文件列表<br><code>git log --stat</code> 每次修改的文件列表, 及文件修改的统计<br><code>git whatchanged</code> 每次修改的文件列表<br><code>git whatchanged --stat</code> 每次修改的文件列表, 及文件修改的统计<br><code>git show</code> 显示最后一次的文件改变的具体内容<br><code>git show -5</code> 显示最后 5 次的文件改变的具体内容<br><code>git show commitid</code> 显示某个 commitid 改变的具体内容</p>
-<h2 id="修复bug，现场保护与还原"><a href="#修复bug，现场保护与还原" class="headerlink" title="修复bug，现场保护与还原"></a>修复bug，现场保护与还原</h2><p><code>git stash</code>：可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作</p>
-<p><code>git stash list</code>：查看保存的工作现场</p>
-<p><code>git stash apply (列名)</code>：恢复现场，不删除stash内容</p>
-<p><code>git stash drop</code>：删除stash内容</p>
-<p><code>git stash pop</code>：恢复现场并删除stash内容</p>
-<p><code>git cherry-pick 提交号</code>：将某一提交复制到当前分支</p>
-<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p><code>rm 文件名</code>：删除文件</p>
-<p><code>git rm 文件名</code>：删除版本库中该文件，之后还要<code>git commit</code></p>
-<p><code>git remote rm 库名</code>：删除远程库链接</p>
-<h2 id="两分支修改冲突"><a href="#两分支修改冲突" class="headerlink" title="两分支修改冲突"></a>两分支修改冲突</h2><p>在A分支上修改后提交，在B分支上又修改后提交，两个分支merge的时候会发生冲突，此时会提示修改，修改完再提交即可</p>
-<p><code>git log --graph --pretty=oneline --abbrev-commit</code>：使用该命令可看分支历史</p>
-<h2 id="推送和抓取分支"><a href="#推送和抓取分支" class="headerlink" title="推送和抓取分支"></a>推送和抓取分支</h2><blockquote>
-<p>push</p>
-</blockquote>
-<p><code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code>：完整push命令</p>
-<p><code>git push origin 分支名</code>：推送本地分支到存在追踪关系的远程分支，若不存在，将创建</p>
-<blockquote>
-<p>pull</p>
-</blockquote>
-<p><code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code>：pull命令完整格式</p>
-<p><code>git pull origin next</code>：远程分支与当前分支合并</p>
-<p><code>git pull origin</code>：若当前分支与远程分支存在追踪关系，可省略远程分支名</p>
-<p><code>git pull</code>：如果当前分支只有一个追踪分支，远程主机名都可以省略</p>
-<p>如果远程主机删除了某个分支，默认情况下，<code>git pull</code> 不会在拉取远程分支的时候，删除对应的本地分支。这是为了防止，由于其他人操作了远程主机，导致<code>git pull</code>不知不觉删除了本地分支。</p>
-<p>但是，你可以改变这个行为，加上参数 <code>-p</code> 就会在本地删除远程已经删除的分支。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git pull -p</span><br><span class="line"># 等同于下面的命令</span><br><span class="line">$ git fetch --prune origin </span><br><span class="line">$ git fetch -p</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="多人协作流程"><a href="#多人协作流程" class="headerlink" title="多人协作流程"></a>多人协作流程</h2><p>多人协作的工作模式通常是这样：</p>
-<ol>
-<li>首先，可以试图用<code>git push origin &lt;branch-name&gt;</code>推送自己的修改；</li>
-<li>如果推送失败，则因为远程分支比你的本地更新，需要先用<code>git pull</code>试图合并；</li>
-<li>如果合并有冲突，则解决冲突，并在本地提交；</li>
-<li>没有冲突或者解决掉冲突后，再用<code>git push origin &lt;branch-name&gt;</code>推送就能成功！</li>
-</ol>
-<p>如果<code>git pull</code>提示<code>no tracking information</code>，则说明本地分支和远程分支的链接关系没有创建，用命令<code>git branch --set-upstream-to &lt;branch-name&gt; origin/&lt;branch-name&gt;</code>。</p>
-<p>这就是多人协作的工作模式，一旦熟悉了，就非常简单</p>
-<p><code>git remote add 起个名 远程库链接</code>：连接远程库</p>
-<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p><code>git tag</code>：查看所有标签</p>
-<p><code>git tag v1.0</code>：给当前版本打上标签v1.0</p>
-<p><code>git tag v0.9 + &lt;commit id&gt;</code>：给某一个版本打上标签</p>
-<p><code>git show + &lt;tag name&gt;</code>：查看标签信息</p>
-<p><code>git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb</code>：创建带有说明的标签</p>
-<p><code>git push origin &lt;tag name&gt;</code>：推送某标签到服务器</p>
-<p><code>git push origin --tags</code>：推送全部标签到服务器</p>
-<p><code>git tag -d &lt;tag name&gt;</code>：删除标签</p>
-<p><code>git push origin :refs/tags/&lt;tag name&gt;</code>：从远程删除标签</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/02/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/1.png">
-      <meta itemprop="name" content="Jettison">
-      <meta itemprop="description" content="Jettison">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jettisons' Blog">
-    </span>
-
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/02/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-08-02 10:45:37" itemprop="dateCreated datePublished" datetime="2020-08-02T10:45:37+08:00">2020-08-02</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 

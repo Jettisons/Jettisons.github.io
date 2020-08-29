@@ -32,7 +32,7 @@
 <meta property="og:description" content="GIT创建版本库创建并提交一个README.md文件 12345678mkdir learn_gitcd learn_gitgit inittouch README.mdgit add README.mdgit commit -m &quot;first commit&quot;git remote add origin git@gitee.com:jettison&#x2F;learn_git.gitgi">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-02T08:12:03.158Z">
-<meta property="article:modified_time" content="2020-08-02T08:50:54.916Z">
+<meta property="article:modified_time" content="2020-08-26T02:34:30.591Z">
 <meta property="article:author" content="Jettison">
 <meta name="twitter:card" content="summary">
 
@@ -180,7 +180,7 @@
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Jettison"
-      src="/images/0.jpg">
+      src="/images/1.png">
   <p class="site-author-name" itemprop="name">Jettison</p>
   <div class="site-description" itemprop="description">Jettison</div>
 </div>
@@ -189,7 +189,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -241,7 +241,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/02/GIT/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/0.jpg">
+      <meta itemprop="image" content="/images/1.png">
       <meta itemprop="name" content="Jettison">
       <meta itemprop="description" content="Jettison">
     </span>
@@ -262,10 +262,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-08-02 16:12:03 / Modified: 16:50:54" itemprop="dateCreated datePublished" datetime="2020-08-02T16:12:03+08:00">2020-08-02</time>
+              <time title="Created: 2020-08-02 16:12:03" itemprop="dateCreated datePublished" datetime="2020-08-02T16:12:03+08:00">2020-08-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-26 10:34:30" itemprop="dateModified" datetime="2020-08-26T10:34:30+08:00">2020-08-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -297,6 +303,7 @@
 
 <h2 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h2><p><code>git status</code>：可查看是否有没有提交的修改</p>
 <p><code>git diff + 文件名</code>：查看文件做了什么修改</p>
+<p><code>git diff + 版本号..版本号</code>：查看两个版本有什么区别</p>
 <p><code>git diff HEAD -- 文件名</code>：查看工作区和版本库里面最新版本的区别</p>
 <p><code>git log</code>：命令显示从最近到最远的提交日志</p>
 <p><code>git log --pretty=oneline</code>：简洁版e</p>
@@ -309,7 +316,9 @@
 <h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p><code>git checkout -b 分支名称</code>：创建并切换到某一分支，该命令相当于</p>
 <p><code>git branch dev</code>+<code>git checkout dev</code></p>
 <p><code>git branch</code>：查看当前分支</p>
-<p><code>git branch -d dev</code>：删除dev分支</p>
+<p><code>git branch -r</code>：查看远程分支</p>
+<p><code>git branch -a</code>：查看所有分支</p>
+<p>``git branch -d dev`：删除dev分支</p>
 <p>鼓励使用switch切换分支</p>
 <p><code>git branch -D dev</code>：强行删除没有merge的dev分支</p>
 <p><code>git switch -c dev</code>：创建并切换到dev分支</p>
@@ -318,6 +327,7 @@
 <p><code>git merge --no-ff -m &quot;merge with no-ff&quot; dev</code>：不适用快速模式合并分支</p>
 <p><code>git branch --set-upstream-to=origin/dev dev</code>：将本地分支与远程分支建立链接</p>
 <p><code>git rebase</code>：可以把本地未push的分叉提交历史整理成直线；</p>
+<p><code>git log --name-status</code> 每次修改的文件列表, 显示状态<br><code>git log --name-only</code> 每次修改的文件列表<br><code>git log --stat</code> 每次修改的文件列表, 及文件修改的统计<br><code>git whatchanged</code> 每次修改的文件列表<br><code>git whatchanged --stat</code> 每次修改的文件列表, 及文件修改的统计<br><code>git show</code> 显示最后一次的文件改变的具体内容<br><code>git show -5</code> 显示最后 5 次的文件改变的具体内容<br><code>git show commitid</code> 显示某个 commitid 改变的具体内容</p>
 <h2 id="修复bug，现场保护与还原"><a href="#修复bug，现场保护与还原" class="headerlink" title="修复bug，现场保护与还原"></a>修复bug，现场保护与还原</h2><p><code>git stash</code>：可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作</p>
 <p><code>git stash list</code>：查看保存的工作现场</p>
 <p><code>git stash apply (列名)</code>：恢复现场，不删除stash内容</p>
@@ -329,8 +339,24 @@
 <p><code>git remote rm 库名</code>：删除远程库链接</p>
 <h2 id="两分支修改冲突"><a href="#两分支修改冲突" class="headerlink" title="两分支修改冲突"></a>两分支修改冲突</h2><p>在A分支上修改后提交，在B分支上又修改后提交，两个分支merge的时候会发生冲突，此时会提示修改，修改完再提交即可</p>
 <p><code>git log --graph --pretty=oneline --abbrev-commit</code>：使用该命令可看分支历史</p>
-<h2 id="推送和抓取分支"><a href="#推送和抓取分支" class="headerlink" title="推送和抓取分支"></a>推送和抓取分支</h2><p><code>git push origin 分支名</code>：推送本地分支到远程分支</p>
-<p><code>git pull</code>：从远程抓取最新的提交</p>
+<h2 id="推送和抓取分支"><a href="#推送和抓取分支" class="headerlink" title="推送和抓取分支"></a>推送和抓取分支</h2><blockquote>
+<p>push</p>
+</blockquote>
+<p><code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code>：完整push命令</p>
+<p><code>git push origin 分支名</code>：推送本地分支到存在追踪关系的远程分支，若不存在，将创建</p>
+<blockquote>
+<p>pull</p>
+</blockquote>
+<p><code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code>：pull命令完整格式</p>
+<p><code>git pull origin next</code>：远程分支与当前分支合并</p>
+<p><code>git pull origin</code>：若当前分支与远程分支存在追踪关系，可省略远程分支名</p>
+<p><code>git pull</code>：如果当前分支只有一个追踪分支，远程主机名都可以省略</p>
+<p>如果远程主机删除了某个分支，默认情况下，<code>git pull</code> 不会在拉取远程分支的时候，删除对应的本地分支。这是为了防止，由于其他人操作了远程主机，导致<code>git pull</code>不知不觉删除了本地分支。</p>
+<p>但是，你可以改变这个行为，加上参数 <code>-p</code> 就会在本地删除远程已经删除的分支。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git pull -p</span><br><span class="line"># 等同于下面的命令</span><br><span class="line">$ git fetch --prune origin </span><br><span class="line">$ git fetch -p</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="多人协作流程"><a href="#多人协作流程" class="headerlink" title="多人协作流程"></a>多人协作流程</h2><p>多人协作的工作模式通常是这样：</p>
 <ol>
 <li>首先，可以试图用<code>git push origin &lt;branch-name&gt;</code>推送自己的修改；</li>
