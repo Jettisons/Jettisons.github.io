@@ -11,6 +11,9 @@
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <link rel="manifest" href="/images/manifest.json">
   <meta name="msapplication-config" content="/images/browserconfig.xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="baidu-site-verification" content="9MpsM2sptc">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -21,7 +24,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false};
   </script>
 
   <meta name="description" content="Jettison">
@@ -47,7 +50,7 @@
   };
 </script>
 
-  <title>Jettisons' Blog</title>
+  <title>Jettisons' Blog - Hello,world</title>
   
 
 
@@ -200,10 +203,10 @@
 </div>
   <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/jettisons" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jettisons" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2pldHRpc29ucw==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jettisons"><i class="fab fa-github fa-fw"></i>GitHub</span>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:jettisons@163.com" title="E-Mail → mailto:jettisons@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <span class="exturl" data-url="bWFpbHRvOmpldHRpc29uc0AxNjMuY29t" title="E-Mail → mailto:jettisons@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
       </span>
   </div>
 
@@ -292,8 +295,8 @@
 <blockquote>
 <p>百度提供的接口</p>
 </blockquote>
-<p>百度坐标转换接口的服务文档：<br><a target="_blank" rel="noopener" href="https://lbsyun.baidu.com/index.php?title=webapi/guide/changeposition">https://lbsyun.baidu.com/index.php?title=webapi/guide/changeposition</a></p>
-<p>接口：<br><a target="_blank" rel="noopener" href="http://api.map.baidu.com/geoconv/v1/?coords=114.21892734521,29.575429778924&amp;from=1&amp;to=5&amp;ak=%E4%BD%A0%E7%9A%84%E5%AF%86%E9%92%A5">http://api.map.baidu.com/geoconv/v1/?coords=114.21892734521,29.575429778924&amp;from=1&amp;to=5&amp;ak=你的密钥</a> //GET请求</p>
+<p>百度坐标转换接口的服务文档：<br><span class="exturl" data-url="aHR0cHM6Ly9sYnN5dW4uYmFpZHUuY29tL2luZGV4LnBocD90aXRsZT13ZWJhcGkvZ3VpZGUvY2hhbmdlcG9zaXRpb24=">https://lbsyun.baidu.com/index.php?title=webapi/guide/changeposition<i class="fa fa-external-link-alt"></i></span></p>
+<p>接口：<br><span class="exturl" data-url="aHR0cDovL2FwaS5tYXAuYmFpZHUuY29tL2dlb2NvbnYvdjEvP2Nvb3Jkcz0xMTQuMjE4OTI3MzQ1MjEsMjkuNTc1NDI5Nzc4OTI0JmFtcDtmcm9tPTEmYW1wO3RvPTUmYW1wO2FrPSVFNCVCRCVBMCVFNyU5QSU4NCVFNSVBRiU4NiVFOSU5MiVBNQ==">http://api.map.baidu.com/geoconv/v1/?coords=114.21892734521,29.575429778924&amp;from=1&amp;to=5&amp;ak=你的密钥<i class="fa fa-external-link-alt"></i></span> //GET请求</p>
 <p>按照服务文档的说明，可以通过这个接口提交坐标转换的申请，即发送需要转换的坐标、源坐标类型、目标坐标类型，从而得到一个状态码和坐标转换后的结果，其格式如下：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">&quot;status&quot;</span>:<span class="number">0</span>,<span class="string">&quot;result&quot;</span>:[&#123;<span class="string">&quot;x&quot;</span>:<span class="number">117.19322369775665</span>,<span class="string">&quot;y&quot;</span>:<span class="number">39.12574664331678</span>&#125;]&#125;</span><br></pre></td></tr></table></figure>
 
@@ -446,15 +449,15 @@
 <blockquote>
 <p><strong>下载地址</strong></p>
 </blockquote>
-<p>官方网站：<a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a></p>
-<p>清华镜像：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/">https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/</a></p>
+<p>官方网站：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmNvbmRhLmlvL2VuL2xhdGVzdC9taW5pY29uZGEuaHRtbA==">https://docs.conda.io/en/latest/miniconda.html<i class="fa fa-external-link-alt"></i></span></p>
+<p>清华镜像：<span class="exturl" data-url="aHR0cHM6Ly9taXJyb3JzLnR1bmEudHNpbmdodWEuZWR1LmNuL2FuYWNvbmRhL21pbmljb25kYS8=">https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/<i class="fa fa-external-link-alt"></i></span></p>
 <hr>
 <p>​        下载好之后进行安装，可以一路默认直到<code>Advanced Options</code>，这里建议不要勾选<code>Add Anaconda to my PATH environment variable</code>，勾选<code>Register Anaconda as my default Python</code>，因为Anaconda的python是在虚拟环境中使用的，如果勾选第一项会导致你在cmd中输入python会有警告，然后继续安装即可</p>
 <p>安装好后在环境变量中添加三个路径，已经有的话就不用了</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\Miniconda3； </span><br><span class="line">C:\Users\Administrator\Miniconda3\Scripts； </span><br><span class="line">C:\Users\Administrator\Miniconda3\Library\bin </span><br></pre></td></tr></table></figure>
 
 <p>至此，conda算是安装好了，接下来就可以利用conda来安装其他你需要的包了</p>
-<h2 id="2-pyTorch的安装"><a href="#2-pyTorch的安装" class="headerlink" title="2. pyTorch的安装"></a>2. pyTorch的安装</h2><p>​        首先到官方网站<a target="_blank" rel="noopener" href="https://pytorch.org/">https://pytorch.org/</a>，得到关于你的配置下的pyTorch安装指令，比如我的是<code>windows10+conda+python+Cuda10.1</code>，就得到了这样的指令<code>conda install pytorch torchvision cudatoolkit=10.1 -c pytorch</code>，注意讲后面的-c python去掉（我也不懂，去掉就是了），接着最保险的安装方法是打开Anaconda Prompt操作台，类似于cmd（已经安装了miniconda，所以会有这个程序）</p>
+<h2 id="2-pyTorch的安装"><a href="#2-pyTorch的安装" class="headerlink" title="2. pyTorch的安装"></a>2. pyTorch的安装</h2><p>​        首先到官方网站<span class="exturl" data-url="aHR0cHM6Ly9weXRvcmNoLm9yZy8=">https://pytorch.org/<i class="fa fa-external-link-alt"></i></span>，得到关于你的配置下的pyTorch安装指令，比如我的是<code>windows10+conda+python+Cuda10.1</code>，就得到了这样的指令<code>conda install pytorch torchvision cudatoolkit=10.1 -c pytorch</code>，注意讲后面的-c python去掉（我也不懂，去掉就是了），接着最保险的安装方法是打开Anaconda Prompt操作台，类似于cmd（已经安装了miniconda，所以会有这个程序）</p>
 <ul>
 <li>对于国内用户推荐，首先给Anaconda添加清华镜像</li>
 </ul>
@@ -468,9 +471,9 @@
 <ul>
 <li>其实也可以先创建环境，再在该环境下安装pyTorch包，效果是一样的</li>
 </ul>
-<h2 id="Cuda-Cudnn的安装"><a href="#Cuda-Cudnn的安装" class="headerlink" title="Cuda+Cudnn的安装"></a>Cuda+Cudnn的安装</h2><p>​        先下载Cuda，到官网下载<a target="_blank" rel="noopener" href="https://developer.nvidia.com/">https://developer.nvidia.com/</a>，根据配置选择相应版本下载。安装直接一路默认即可</p>
+<h2 id="Cuda-Cudnn的安装"><a href="#Cuda-Cudnn的安装" class="headerlink" title="Cuda+Cudnn的安装"></a>Cuda+Cudnn的安装</h2><p>​        先下载Cuda，到官网下载<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubnZpZGlhLmNvbS8=">https://developer.nvidia.com/<i class="fa fa-external-link-alt"></i></span>，根据配置选择相应版本下载。安装直接一路默认即可</p>
 <hr>
-<p>​        再下载Cudnn，<a target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-download">https://developer.nvidia.com/rdp/cudnn-download</a>，需要注册一个Nivida账号，选择相应版本下载 </p>
+<p>​        再下载Cudnn，<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubnZpZGlhLmNvbS9yZHAvY3Vkbm4tZG93bmxvYWQ=">https://developer.nvidia.com/rdp/cudnn-download<i class="fa fa-external-link-alt"></i></span>，需要注册一个Nivida账号，选择相应版本下载 </p>
 <ol>
 <li><p>下载完成后得到一个压缩包，将其解压，找到文件夹’cuda’打开，你会发现三个文件夹’bin’、’include’、’lib’</p>
 </li>
@@ -694,19 +697,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+          <p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
 
       
     </div>
@@ -770,7 +773,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Jettison</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span>
   </div>
 
         
@@ -818,6 +821,15 @@
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 
