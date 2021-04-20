@@ -27,16 +27,16 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false};
   </script>
 
-  <meta name="description" content="记录一次配置项目到ubuntu服务器上的操作连接远程服务器打开命令符，输入ssh 用户名@服务器地址，之后输入密码即可进入 前端vue项目打包 npm run build：编译代码到.&#x2F;dist文件夹下  使用scp命令将dist文件夹传到服务器的前端文件夹下 scp -r dist ubuntu@10.103.238.146:&#x2F;home&#x2F;ubuntu&#x2F;font   后端Java项目打包 点击ma">
+  <meta name="description" content="记录一次配置项目到ubuntu服务器上的操作连接远程服务器打开命令符，输入ssh 用户名@服务器ip地址，之后输入密码即可进入 前端vue项目打包 npm run build：编译代码到.&#x2F;dist文件夹下  使用scp命令将dist文件夹传到服务器的前端文件夹下 scp -r dist ubuntu@服务器ip地址:&#x2F;home&#x2F;ubuntu&#x2F;font   后端Java项目打包 点击maven，点">
 <meta property="og:type" content="article">
 <meta property="og:title" content="记录一次配置项目到ubuntu服务器上的操作">
 <meta property="og:url" content="http://yoursite.com/2020/12/02/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Jettisons&#39; Blog">
-<meta property="og:description" content="记录一次配置项目到ubuntu服务器上的操作连接远程服务器打开命令符，输入ssh 用户名@服务器地址，之后输入密码即可进入 前端vue项目打包 npm run build：编译代码到.&#x2F;dist文件夹下  使用scp命令将dist文件夹传到服务器的前端文件夹下 scp -r dist ubuntu@10.103.238.146:&#x2F;home&#x2F;ubuntu&#x2F;font   后端Java项目打包 点击ma">
+<meta property="og:description" content="记录一次配置项目到ubuntu服务器上的操作连接远程服务器打开命令符，输入ssh 用户名@服务器ip地址，之后输入密码即可进入 前端vue项目打包 npm run build：编译代码到.&#x2F;dist文件夹下  使用scp命令将dist文件夹传到服务器的前端文件夹下 scp -r dist ubuntu@服务器ip地址:&#x2F;home&#x2F;ubuntu&#x2F;font   后端Java项目打包 点击maven，点">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:/Users/Jet/AppData/Roaming/Typora/typora-user-images/image-20201123225457860.png">
 <meta property="article:published_time" content="2020-12-02T02:47:11.382Z">
-<meta property="article:modified_time" content="2021-03-17T01:56:03.947Z">
+<meta property="article:modified_time" content="2021-04-19T02:01:13.951Z">
 <meta property="article:author" content="Jettison">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="c:/Users/Jet/AppData/Roaming/Typora/typora-user-images/image-20201123225457860.png">
@@ -288,7 +288,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-17 09:56:03" itemprop="dateModified" datetime="2021-03-17T09:56:03+08:00">2021-03-17</time>
+                <time title="Modified: 2021-04-19 10:01:13" itemprop="dateModified" datetime="2021-04-19T10:01:13+08:00">2021-04-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -316,17 +316,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="记录一次配置项目到ubuntu服务器上的操作"><a href="#记录一次配置项目到ubuntu服务器上的操作" class="headerlink" title="记录一次配置项目到ubuntu服务器上的操作"></a>记录一次配置项目到ubuntu服务器上的操作</h2><h3 id="连接远程服务器"><a href="#连接远程服务器" class="headerlink" title="连接远程服务器"></a>连接远程服务器</h3><p>打开命令符，输入<code>ssh 用户名@服务器地址</code>，之后输入密码即可进入</p>
+        <h2 id="记录一次配置项目到ubuntu服务器上的操作"><a href="#记录一次配置项目到ubuntu服务器上的操作" class="headerlink" title="记录一次配置项目到ubuntu服务器上的操作"></a>记录一次配置项目到ubuntu服务器上的操作</h2><h3 id="连接远程服务器"><a href="#连接远程服务器" class="headerlink" title="连接远程服务器"></a>连接远程服务器</h3><p>打开命令符，输入<code>ssh 用户名@服务器ip地址</code>，之后输入密码即可进入</p>
 <h3 id="前端vue项目打包"><a href="#前端vue项目打包" class="headerlink" title="前端vue项目打包"></a>前端vue项目打包</h3><ol>
 <li><p><code>npm run build</code>：编译代码到./dist文件夹下</p>
 </li>
 <li><p>使用scp命令将dist文件夹传到服务器的前端文件夹下</p>
-<p><code>scp -r dist ubuntu@10.103.238.146:/home/ubuntu/font</code></p>
+<p><code>scp -r dist ubuntu@服务器ip地址:/home/ubuntu/font</code></p>
 </li>
 </ol>
 <h3 id="后端Java项目打包"><a href="#后端Java项目打包" class="headerlink" title="后端Java项目打包"></a>后端Java项目打包</h3><ol>
 <li>点击maven，点击Lifcycle下的package，将项目打包为一个jar包</li>
-<li>使用scp命令将jar包传到服务器的后端文件夹下</li>
+<li>使用scp命令将jar包传到服务器的后端文件夹下（scp命令不需要加 -r参数了，因为-r是传文件夹）</li>
 </ol>
 <h3 id="配置服务器"><a href="#配置服务器" class="headerlink" title="配置服务器"></a>配置服务器</h3><h4 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h4><ol>
 <li>在本机下载jdk-8u271-linux-x64.tar.gz</li>
@@ -342,6 +342,7 @@
 <li><code>sudo apt-get install nginx</code>：安装nginx</li>
 <li>在/etc/nginx/conf.d文件夹下创建自定义配置文件nginx.conf</li>
 <li>编辑该配置文件</li>
+<li></li>
 </ol>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">listen 8001;</span><br><span class="line">server<span class="emphasis">_name localhost;</span></span><br><span class="line"><span class="emphasis">#charset koi8-r;</span></span><br><span class="line"><span class="emphasis">#access_</span>log /var/log/nginx/host.access.1og main;</span><br><span class="line">location / &#123;</span><br><span class="line"><span class="section">#root /usr/share/nginx/html;</span></span><br><span class="line">root /home/ubuntu/font/dist;</span><br><span class="line">index index.html index.htm;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
