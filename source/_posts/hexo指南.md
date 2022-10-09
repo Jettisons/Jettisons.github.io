@@ -1,10 +1,13 @@
 ---
 title: Hexo博客搭建指南
 categories:
-- tech
+- 指北
 ---
 
 # Hexo博客搭建指南
+
+我的搭建Hexo博客之路
+<!-- more -->
 
 ## 安装Node.js
 

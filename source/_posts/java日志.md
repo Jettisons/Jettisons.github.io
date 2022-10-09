@@ -1,4 +1,8 @@
-# java日志
+---
+title: java日志
+categories:
+- tech
+---
 
 日志框架技术：JUL、Logback、Log4j、Log4j2
 
@@ -7,6 +11,8 @@
 每一种日志框架都有自己单独的API，要使用对应的框架就要使用对应的API
 
 使用日志门面技术可以屏蔽日志框架技术的不同，可在项目中随意改动日志框架 
+
+<!-- more -->
 
 ## JUL
 

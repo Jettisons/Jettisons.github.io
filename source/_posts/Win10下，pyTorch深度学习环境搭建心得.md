@@ -14,6 +14,8 @@ categories:
 
 接下来介绍从零开始配置环境
 
+<!-- more -->
+
 ## 1. Anaconda的安装
 
 ​        我的电脑上已经先安装过了python3.7，一开始我并不想安装anaconda，本意尽量从简，但是pip并没有想象中好用，并不能快速安装我需要的包，所以选择使用conda。对于conda，有两个选择，一个是Anaconda，一个是Miniconda。后者是前者的精简版，只有conda的包管理功能，没有主界面等，简单说就是让你可以在命令行用conda的指令，对我来说足够了，所以我选择安装miniconda。

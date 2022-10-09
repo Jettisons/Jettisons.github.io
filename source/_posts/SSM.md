@@ -14,6 +14,8 @@ Spring是一个IOC(DI)和AOP容器框架。
 
 可以管理所有的组件（类）
 
+<!-- more -->
+
 ### IOC和AOP
 
 > IOC控制反转（容器）

@@ -4,6 +4,9 @@ categories:
 - tech
 ---
 
+一篇当时初学Java时的笔记
+<!-- more -->
+
 # IDEA
 
 | 快捷键               | 功能                                 |

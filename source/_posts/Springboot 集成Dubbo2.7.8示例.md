@@ -6,6 +6,8 @@ categories:
 
 # Springboot 集成Dubbo2.7.8示例
 
+<!-- more -->
+
 ## consumer&provider
 
 ### 依赖
