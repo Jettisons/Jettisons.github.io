@@ -24,12 +24,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="数据库SQL概念主键 唯一标识表中每行的列才成为主键 若多列作为主键，列值的组合必须是唯一的  关键字顺序1SELECT &gt; DISTINCT &gt; AS &gt; FROM &gt; WHERE &gt; LIKE(REGEXP) &gt; ORDER BY &gt; BINARY &gt; DESC(ASC) &gt; LIMIT   查看操作 SHOWSHOW DATABASES：">
+    <meta name="description" content="数据库记录了一些MySql数据的知识">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQL">
+<meta property="og:title" content="MySql数据库知识">
 <meta property="og:url" content="http://yoursite.com/2022/09/27/%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
 <meta property="og:site_name" content="Jettisons&#39; Blog">
-<meta property="og:description" content="数据库SQL概念主键 唯一标识表中每行的列才成为主键 若多列作为主键，列值的组合必须是唯一的  关键字顺序1SELECT &gt; DISTINCT &gt; AS &gt; FROM &gt; WHERE &gt; LIKE(REGEXP) &gt; ORDER BY &gt; BINARY &gt; DESC(ASC) &gt; LIMIT   查看操作 SHOWSHOW DATABASES：">
+<meta property="og:description" content="数据库记录了一些MySql数据的知识">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:/Users/Jet/AppData/Roaming/Typora/typora-user-images/image-20210420121310952.png">
 <meta property="og:image" content="c:/Users/Jet/AppData/Roaming/Typora/typora-user-images/image-20210420114802810.png">
@@ -40,7 +40,7 @@
 <meta property="og:image" content="c:/Users/Jet/AppData/Roaming/Typora/typora-user-images/image-20210420122153491.png">
 <meta property="og:image" content="c:/Users/Jet/AppData/Roaming/Typora/typora-user-images/image-20210518122244917.png">
 <meta property="article:published_time" content="2022-09-27T14:10:19.789Z">
-<meta property="article:modified_time" content="2021-12-21T08:05:55.289Z">
+<meta property="article:modified_time" content="2022-10-09T08:37:13.814Z">
 <meta property="article:author" content="Jettison">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="c:/Users/Jet/AppData/Roaming/Typora/typora-user-images/image-20210420121310952.png">
@@ -50,10 +50,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://yoursite.com/2022/09/27/%E6%95%B0%E6%8D%AE%E5%BA%93/","path":"2022/09/27/数据库/","title":"SQL"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://yoursite.com/2022/09/27/%E6%95%B0%E6%8D%AE%E5%BA%93/","path":"2022/09/27/数据库/","title":"MySql数据库知识"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>SQL | Jettisons' Blog</title>
+<title>MySql数据库知识 | Jettisons' Blog</title>
   
 
 
@@ -100,7 +100,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">1</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">12</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">2</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">12</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
@@ -178,7 +178,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
@@ -238,12 +238,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="SQL | Jettisons' Blog">
+      <meta itemprop="name" content="MySql数据库知识 | Jettisons' Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          SQL
+          MySql数据库知识
         </h1>
 
         <div class="post-meta-container">
@@ -261,7 +261,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2021-12-21 16:05:55" itemprop="dateModified" datetime="2021-12-21T16:05:55+08:00">2021-12-21</time>
+      <time title="Modified: 2022-10-09 16:37:13" itemprop="dateModified" datetime="2022-10-09T16:37:13+08:00">2022-10-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -298,7 +298,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="SQL概念"><a href="#SQL概念" class="headerlink" title="SQL概念"></a>SQL概念</h2><h3 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h3><ul>
+        <h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><p>记录了一些MySql数据的知识</p>
+<span id="more"></span>
+
+<h2 id="SQL概念"><a href="#SQL概念" class="headerlink" title="SQL概念"></a>SQL概念</h2><h3 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h3><ul>
 <li>唯一标识表中每行的列才成为主键</li>
 <li>若多列作为主键，列值的组合必须是唯一的</li>
 </ul>
